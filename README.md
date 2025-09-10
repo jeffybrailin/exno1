@@ -214,3 +214,6 @@ z
 
 # Result
 Thus, we have read the given data and performed data cleaning and saved the cleaned data to a file successfully.
+
+# Inference
+For checking the missing values  isnull() is used and quantified them using isnull().sum(axis=1) to understand their distribution across rows. To handle missing values, I tried a few approaches like, I used dropna() to simply remove the rows that had nulls. Then, I used fillna("O") to replace empty spots with a constant placeholder. I also tried forward fill (ffill) and backward fill (bfill), which copy values from the row above or below to fill gaps. Finally, for important numeric columns like Credit_History, I replaced missing values with the column’s average so the data stays consistent without distorting the numbers.For outliers, first visualized them with a boxplot (sns.boxplot) and then calculated the IQR using Q1, Q3, and the formula low = Q1 – 1.5* IQR, high = Q3 + 1.5*IQR, filtering values outside this range as potential outliers. These steps together ensured the dataset became clean, consistent, and free of problematic entries both missing and outlier values, making it more reliable for downstream analytics or machine learning models
